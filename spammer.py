@@ -3,6 +3,12 @@ from pynput import keyboard
 from pynput.keyboard import Key
 from time import sleep
 import sys
+try:
+    import pip
+except ImportError:
+    from pip._internal import main as pip
+print("Installing pynput...")
+pip.main(["install", "--user", "pynput"])
 keyboard = keyboard.Controller()
 mouse = Controller()
 spamword = input("What would you like to spam?:")
