@@ -11,8 +11,8 @@ print("Installing pynput...")
 pip.main(["install", "--user", "pynput"])
 keyboard = keyboard.Controller()
 mouse = Controller()
-spamword = input("What would you like to spam?:")
-spamtimes = int(input("How many times would you like to spam?:"))
+spamword = input("What text would you like to spam?:")
+spamtimes = int(input("How many times would you like to spam this text?:"))
 app = input("Select app that you are using to spam:")
 if app == "Teams" or app == "Microsoft Teams":
     appspeed = 0.6
