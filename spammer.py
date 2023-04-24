@@ -7,24 +7,26 @@ try:
     import pip
 except ImportError:
     from pip._internal import main as pip
-print("Installing pynput...")
+print("Installing required libraries...")
 pip.main(["install", "--user", "pynput"])
 keyboard = keyboard.Controller()
 mouse = Controller()
-spamword = input("What text would you like to spam?:")
-spamtimes = int(input("How many times would you like to spam this text?:"))
-app = input("Select app that you are using to spam:")
+spamword = input("Enter the text that you would like to spam:")
+spamtimes = int(input("Enter the number of times you would like to spam the text:"))
+app = input("Select the app that you are using to spam:")
 if app == "Teams" or app == "Microsoft Teams":
     appspeed = 0.6
 elif app == "WhatsApp" or app == "WA" or app == "Whatsapp":
     appspeed = 0.2
 else:
-    print("Invalid/unsupported app.")
+    print("Invalid/unsupported app. Make an issue on GitHub to suggest new app support.")
     sys.exit()
-input("PLACE YOUR MOUSE ON TYPING AREA AND PRESS ENTER: ")
+input("PLACE YOUR MOUSE ON TYPING AREA AND PRESS ENTER:")
 cursorpos = Controller().position
 print("MOUSE POSITION LOGGED!")
+sleep(1.0)
 print("MAKE SURE THAT YOU DON'T MOVE THE MOUSE!")
+sleep(1.0)
 input("PRESS ENTER TO START SPAMMING!")
 for i in range(spamtimes+1):
     word = spamword
@@ -35,6 +37,6 @@ for i in range(spamtimes+1):
     sleep(appspeed)
 print("FINISHED SPAMMING!")
 sleep(1.0)
-print("Credits to SpookySec for original script and AetherYT for improved version")
-sleep(1.0)
+print("Credits to SpookySec for original and AetherYT for improved version.")
+sleep(2.0)
 close = input("Press Enter to close this script.")
