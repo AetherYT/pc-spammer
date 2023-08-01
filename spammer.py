@@ -16,7 +16,7 @@ spamtimes = int(input("Enter the number of times you would like to spam the text
 app = input("Select the app that you are using to spam (type max ONLY if you know what you are doing):")
 if app == "Teams" or app == "Microsoft Teams" or app == "MS Teams":
     appspeed = 0.6
-elif app == "WhatsApp" or app == "WA" or app == "Whatsapp" or app == "wa":
+elif app == "WhatsApp" or app == "WA" or app == "Whatsapp" or app == "wa" or app=="Discord" or app=="discord":
     appspeed = 0.2
 elif app == 'max' or 'MAX':
     appspeed = 0.0
