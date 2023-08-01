@@ -1,6 +1,3 @@
-from pynput.mouse import Controller, Button
-from pynput import keyboard
-from pynput.keyboard import Key
 from time import sleep
 import sys
 try:
@@ -8,7 +5,10 @@ try:
 except ImportError:
     from pip._internal import main as pip
 print("Installing required libraries...")
-pip.main(["install", "--user", "pynput"])
+pip.main(["install", "pynput"])
+from pynput.mouse import Controller, Button
+from pynput import keyboard
+from pynput.keyboard import Key
 keyboard = keyboard.Controller()
 mouse = Controller()
 spamword = input("Enter the text that you would like to spam:")
@@ -16,7 +16,7 @@ spamtimes = int(input("Enter the number of times you would like to spam the text
 app = input("Select the app that you are using to spam:")
 if app == "Teams" or app == "Microsoft Teams":
     appspeed = 0.6
-elif app == "WhatsApp" or app == "WA" or app == "Whatsapp":
+elif app == "WhatsApp" or app == "WA" or app == "Whatsapp" or app == "wa":
     appspeed = 0.2
 else:
     print("Invalid/unsupported app. Make an issue on GitHub to suggest new app support.")
