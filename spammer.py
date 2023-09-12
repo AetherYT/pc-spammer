@@ -4,8 +4,15 @@ try:
     import pip
 except ImportError:
     from pip._internal import main as pip
-print("Installing required libraries...")
-pip.main(["install", "--user", "pynput"])
+try:
+    from pynput.mouse import Controller, Button
+    from pynput import keyboard
+    from pynput.keyboard import Key
+except ImportError:
+    print("Installing required libraries! Ignore any errors about pip being invoked by an old script wrappper...")
+    import contextlib
+    with contextlib.redirect_stdout(None):
+        pip.main(["install", "--user", "pynput"])
 from pynput.mouse import Controller, Button
 from pynput import keyboard
 from pynput.keyboard import Key
@@ -23,13 +30,14 @@ elif app == 'max' or 'MAX' or 'Max':
 else:
     print("Invalid/unsupported app. Make an issue on GitHub (AetherYT) to suggest new app support.")
     sys.exit()
-input("PLACE YOUR MOUSE ON TYPING AREA AND PRESS ENTER:")
+input("PLACE YOUR MOUSE ON TYPING AREA AND PRESS ENTER! The Python window must be in focus!")
 cursorpos = Controller().position
 print("MOUSE POSITION LOGGED!")
 sleep(1.0)
 print("MAKE SURE THAT YOU DON'T MOVE THE MOUSE!")
 sleep(1.0)
 input("PRESS ENTER TO START SPAMMING!")
+sleep(1.0)
 for i in range(spamtimes+1):
     word = spamword
     mouse.position = cursorpos
@@ -40,5 +48,5 @@ for i in range(spamtimes+1):
 print("FINISHED SPAMMING!")
 sleep(1.0)
 print("Credits to SpookySec for original and AetherYT for improved version.")
-sleep(2.0)
+sleep(1.0)
 close = input("Press Enter to close this script.")
